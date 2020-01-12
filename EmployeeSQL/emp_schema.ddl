@@ -1,11 +1,10 @@
+create schema emp;
+
 -- department table
 create table emp.department (
 	dept_no varchar(30) not null CONSTRAINT deptkey PRIMARY KEY,
 	dept_name varchar (30)
 );
-
---sample dept select
-select * from emp.department;
 
 --employees table
 create table emp.employees (
@@ -17,9 +16,6 @@ create table emp.employees (
     hire_date date not null
 );
 
---sample employees select
-select * from emp.employees;
-
 -- dept manager table
 create table emp.dept_manager (
 	dept_no varchar(30) not null references emp.department(dept_no),
@@ -28,9 +24,6 @@ create table emp.dept_manager (
     to_date date not null
 );
 
---sample dept_manager select
-select * from emp.dept_manager;
-
 -- dept employee table
 create table emp.dept_emp (
 	emp_no numeric not null references emp.employees(emp_no),
@@ -38,9 +31,6 @@ create table emp.dept_emp (
 	from_date date not null,
     to_date date not null
 );
-
---sample dept_manager select
-select * from emp.dept_emp;
 
 -- salaries table
 create table emp.salaries (
